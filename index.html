@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booklet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style id="page-size">
+      .signature-wrapper { padding-bottom: 77.2727%; } @media print { @page { size: 8.5in 11in landscape; } body { width: 11in; height: 16.95in; } }
+    </style>
+    <link href="assets/styles/booklet.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <div class="signature-wrapper">
+        <div class="page-wrapper front" id="p_1"><div class="page"><h1>1</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_2"><div class="page"><h1>2</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_3"><div class="page"><h1>3</h1></div></div>
+        <div class="page-wrapper front" id="p_4"><div class="page"><h1>4</h1></div></div>
+        <div class="page-wrapper front" id="p_5"><div class="page"><h1>5</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_6"><div class="page"><h1>6</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_7"><div class="page"><h1>7</h1></div></div>
+        <div class="page-wrapper front" id="p_8"><div class="page"><h1>8</h1></div></div>
+        <div class="page-wrapper front" id="p_9"><div class="page"><h1>9</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_10"><div class="page"><h1>10</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_11"><div class="page"><h1>11</h1></div></div>
+        <div class="page-wrapper front" id="p_12"><div class="page"><h1>12</h1></div></div>
+        <div class="page-wrapper front" id="p_13"><div class="page"><h1>13</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_14"><div class="page"><h1>14</h1></div></div>
+        <div class="page-wrapper back flipped" id="p_15"><div class="page"><h1>15</h1></div></div>
+        <div class="page-wrapper front" id="p_16"><div class="page"><h1>16</h1></div></div>
+      </div>
+    </main>
+    <div id="controls">
+
+      <div><button id="flip">Flip</button></div>
+      <div><button id="turn">Turn</button></div>
+      <div><button id="fold">Fold / Unfold</button></div>
+      <div>
+        <select name="resize">
+          <option value="letter">Letter</option>
+          <option value="legal">Legal</option>
+          <option value="tabloid">Tabloid</option>
+          <option value="A4">A4</option>
+          <option value="A3">A3</option>
+        </select>
+      </div>
+      <div><button id="print">Print</button></div>
+  	</div>
+    <script src="assets/scripts/booklet.js"></script>
+  </body>
+</html>
