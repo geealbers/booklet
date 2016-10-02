@@ -81,7 +81,8 @@
 
 
 body {
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
+  background-color: #bbb;
   margin: 0;
   padding: 0;
 }
@@ -217,7 +218,7 @@ h1 {
 
 @media print {
   @page {
-    margin: 0;
+    margin: 0in !important;
   }
   main {
     width: 100%;
@@ -232,9 +233,9 @@ h1 {
     margin: 0;
   }
   .page-wrapper {
-    /*height: 25%;*/
-    width: 2.75in;
-    height: 4.25in;
+    height: 25%;
+    width: 25%;
+    position: fixed;
   }
   .page-wrapper.back.flipped {
     -webkit-transform: rotateY(0deg);
@@ -255,9 +256,6 @@ h1 {
   }
   #p_6, #p_7, #p_10, #p_11 {
     top: 50%;
-  }
-  #p_6 .page, #p_7 .page, #p_10 .page, #p_11 .page {
-    background-color: #555;
   }
   #p_2, #p_3, #p_14, #p_15 {
     top: 75%;
