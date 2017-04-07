@@ -140,12 +140,12 @@ main {
   position: absolute;
   background-color: #fff;
 }
-h1 {
+/*h1 {
   text-align: center;
   color: #eee;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 8vw;
-}
+}*/
 #p_1, #p_3 {
   top: 50%;
   left: 25%;
