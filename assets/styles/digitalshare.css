@@ -5,3 +5,39 @@ html {
 h1 {
   color: #a313ff;
 }
+.page {
+  border: 1px solid #000;
+}
+
+figure {
+  width: 60%;
+  margin: 1rem 20%;
+}
+img {
+  width: 100%;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.title {
+  font-weight: 700;
+}
+
+h1, h2, h3, p {
+  margin: 1rem 2rem;
+}
+
+ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin: 1rem 2rem;
+}
+
+li > ul,
+li > h3 {
+  margin:0;
+}
+
+li {
+  margin-bottom: .5em;
+}
