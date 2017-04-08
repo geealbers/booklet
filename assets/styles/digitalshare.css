@@ -1,5 +1,5 @@
 .page {
-  border: 1px solid #000;
+  border: 1px solid #a313ff;
 }
 
 
@@ -7,16 +7,32 @@ html {
   font-size: 70%;
   font-family: 'Raleway', sans-serif;
 }
+body {
+  background-color: #a313ff;
+}
 h1, h2, h3, p {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 h1 {
-  color: #a313ff;
+  margin-top: 3rem;
+  margin-bottom: 0;
+  font-size: 6rem;
+  font-weight: 200;
 }
-h2, h3 {
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+h3 {
   margin-top: 2rem;
   margin-bottom: 0;
+}
+h2 + h3,
+p + h2,
+p + h3,
+ul + h3 {
+  margin-top: 1rem;
 }
 p {
   margin-top: 0;
@@ -25,7 +41,7 @@ p {
 ul {
   padding-left: 0;
   list-style-type: none;
-  margin: 0 2rem 1rem;
+  margin: 0 3rem 1rem;
 }
 li {
   margin-bottom: .5em;
@@ -36,7 +52,13 @@ li > h3 {
 }
 figure {
   width: 60%;
-  margin: 1rem 20%;
+  margin: 4rem 20% 0;
+}
+figure + h3 {
+  margin-top: .5em;
+}
+p + figure {
+  margin: 2rem 20% 0;
 }
 img {
   width: 100%;
@@ -45,16 +67,23 @@ img {
 }
 
 .details {
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   font-style: italic;
 }
 .continued {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 .icon {
   width: 1.5rem;
   margin-right: .5rem;
 }
+.icon-lg {
+  width: 2rem;
+  margin-right: .5rem;
+}
 .title {
   font-weight: 700;
+}
+#p_16 .page {
+  background-color: #ddd;
 }
