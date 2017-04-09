@@ -69,6 +69,19 @@ img {
 a {
   color: #000;
 }
+hr {
+  border-style: dashed;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  /*width: 80%;*/
+  margin-top: 2rem;
+}
+hr + h2 {
+  margin-top: 1rem;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
 .details {
   margin-bottom: .5rem;
   font-style: italic;
@@ -86,7 +99,4 @@ a {
 }
 .title {
   font-weight: 700;
-}
-#p_16 .page {
-  background-color: #ddd;
 }
