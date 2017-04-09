@@ -15,10 +15,11 @@ h1, h2, h3, p {
   margin-right: 3rem;
 }
 h1 {
-  margin-top: 3rem;
-  margin-bottom: 0;
+  margin-top: 1.75rem;
+  margin-bottom: .5rem;
   font-size: 6rem;
   font-weight: 200;
+  line-height: 1.1em;
 }
 h2 {
   margin-top: 3rem;
@@ -65,7 +66,9 @@ img {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
-
+a {
+  color: #000;
+}
 .details {
   margin-bottom: .5rem;
   font-style: italic;
