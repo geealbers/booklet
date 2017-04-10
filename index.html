@@ -1,36 +1,388 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Booklet</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style id="page-size">
       .signature-wrapper { padding-bottom: 77.2727%; } @media print { @page { size: 8.5in 11in landscape; } body { width: 11in; height: 16.95in; } }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,400i,700,700i&effect=neon" rel="stylesheet">
     <link href="assets/styles/booklet.css" rel="stylesheet" />
+    <link href="assets/styles/digitalshare.css" rel="stylesheet" />
   </head>
   <body>
+    <svg style="display:none">
+      <symbol id="explosive" viewBox="0 0 57.6 90">
+        <rect x="40.9" y="24.5" class="st0" width="8.2" height="8.2"/>
+      	<rect x="40.9" class="st0" width="8.2" height="16.4"/>
+      	<rect x="49.3" y="16.4" class="st0" width="8.2" height="8.2"/>
+      	<path class="st0" d="M49.1,40.9h-8.2v-8.2H16.4v8.2H8.2v8.2H0v24.5h8.2v8.2h8.2V90h24.5v-8.2h8.2v-8.2h8.2V49.1h-8.2V40.9z
+      		 M24.5,49.1v8.2h-8.2v-8.2H24.5z"/>
+      </symbol>
+      <symbol id="invader" viewBox="0 0 102.8 72">
+        <rect x="20.5" class="st0" width="10.3" height="10.3"/>
+      	<rect x="71.9" class="st0" width="10.3" height="10.3"/>
+      	<path class="st0" d="M10.2,41.1v20.6h10.3V72h10.3V61.7h41.1V72h10.3V61.7h10.3V41.1h10.3V10.3H92.5v20.6H82.2V20.6H71.9V10.3H61.6
+      		v10.3H41V10.3H30.8v10.3H20.5v10.3H10.2l0,0V10.3H0v30.9H10.2L10.2,41.1z M61.6,30.9h10.3v10.3H61.6V30.9z M30.8,30.9H41v10.3H30.8
+      		C30.8,41.1,30.8,30.9,30.8,30.9z"/>
+      </symbol>
+      <symbol id="heart" viewBox="0 0 81.4 72">
+        <polygon points="72,9 72,0 45,0 45,9 36,9 36,0 9,0 9,9 18,9 18,27 9,27 9,9 0,9 0,36 8.9,36 8.9,45 18,45 18,54 27,54 27,63 36,63
+        	36,72 45,72 45,63 54,63 54,54 63,54 63,45 71.9,45 71.9,36 81,36 81,9 "/>
+      </symbol>
+      <symbol id="potion" viewBox="0 0 90 90">
+        <path class="st0" d="M90,57.3v24.6h-8.2V90H8.2v-8.2H0V57.3h8.2v-8.2h8.2v8.2h57.3v-8.2h8.2v8.2H90z M73.6,49.1v-8.2h-8.2v8.2H73.6z
+        	 M73.6,0v24.5h-8.2v16.4h-8.2V24.5H32.7v16.4h-8.2V24.5h-8.2V0H73.6z M65.5,8.2H24.5v8.2h40.9V8.2z M24.5,40.9h-8.2v8.2h8.2V40.9z"
+        	/>
+      </symbol>
+      <symbol id="pigeon" viewBox="0 0 99 90">
+        <path d="M45,18V0H18v18H0v9h18v18h9v9h9v9h18v9h9v-9h9v-9h9v-9h9v-9h9V18H45z M27,9h9v9h-9V9z"/>
+      	<rect x="45" y="72" width="9" height="9"/>
+      	<rect x="63" y="72" width="9" height="9"/>
+      	<rect x="36" y="81" width="9" height="9"/>
+      	<rect x="72" y="81" width="9" height="9"/>
+      </symbol>
+    </svg>
+    <!-- GitHub link by https://github.com/tholman/github-corners -->
+    <a href="https://github.com/gettypubs/digital-share-booklet" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <main>
       <div class="signature-wrapper">
-        <div class="page-wrapper front" id="p_1"><div class="page"><h1>1</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_2"><div class="page"><h1>2</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_3"><div class="page"><h1>3</h1></div></div>
-        <div class="page-wrapper front" id="p_4"><div class="page"><h1>4</h1></div></div>
-        <div class="page-wrapper front" id="p_5"><div class="page"><h1>5</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_6"><div class="page"><h1>6</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_7"><div class="page"><h1>7</h1></div></div>
-        <div class="page-wrapper front" id="p_8"><div class="page"><h1>8</h1></div></div>
-        <div class="page-wrapper front" id="p_9"><div class="page"><h1>9</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_10"><div class="page"><h1>10</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_11"><div class="page"><h1>11</h1></div></div>
-        <div class="page-wrapper front" id="p_12"><div class="page"><h1>12</h1></div></div>
-        <div class="page-wrapper front" id="p_13"><div class="page"><h1>13</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_14"><div class="page"><h1>14</h1></div></div>
-        <div class="page-wrapper back flipped" id="p_15"><div class="page"><h1>15</h1></div></div>
-        <div class="page-wrapper front" id="p_16"><div class="page"><h1>16</h1></div></div>
+        <div class="page-wrapper front" id="p_1"><div class="page">
+          <h1>Getty Digital Share!</h1>
+          <p><strong>April 12, 2017</strong></p>
+          <p class="details">An on-site retreat for staff working on digital projects to meet one another and to exchange work and ideas.</p>
+          <ul>
+            <li>Full program: <a href="http://bit.ly/digitalshare2017">http://bit.ly/digitalshare2017</a></li>
+            <li>This booklet: <a href="https://gettypubs.github.io/digital-share-booklet/">https://gettypubs.github.io/digital-share-booklet/</a></li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_2"><div class="page">
+          <h2>Welcome</h2>
+          <p class="details"><span class="time">10:30–10:40am</span> | <span class="location">Museum Lecture Hall</span></p>
+          <p>Greg Albers, Scarlett Hu, Annelisa Stephan</p>
+          <h2><svg class="icon-vert"><switch><use xlink:href="#explosive"></use><foreignObject><img src="assets/images/icon_explosive.png" alt="" /></foreignObject><switch></svg> Lightning Talks!</h2>
+          <p class="details"><span class="time">10:40–11:50am</span> | <span class="location">Museum Lecture Hall</span></p>
+          <ul>
+            <li><span class="title">Getty Information Systems Ecosystem</span>
+                <span class="speaker">Rich Fagen</span>
+            </li>
+            <li><span class="title">“Explodity” Online Interactive</span>
+                <span class="speaker">Alicia Houtrouw</span>
+            </li>
+            <li><span class="title">Automated New Books List for Primo</span>
+                <span class="speaker">Ryan Edwards</span>
+            </li>
+            <li><span class="title">Online Collection Catalogues</span>
+                <span class="speaker">Claire Lyons</span>
+            </li>
+            <li><span class="title">Public Programs for the Online Audience</span>
+                <span class="speaker">Sarah Cooper</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_3"><div class="page">
+          <ul class="continued">
+            <li><span class="title">StaffNet: Staff WiFi at the Getty</span>
+                <span class="speaker">Shane Greene, David Wholihan (the WiFi Guys)</span>
+            </li>
+            <li><span class="title">Curators on Facebook Live</span>
+                <span class="speaker">Anne Woollett, Bryan Keene, Nicole Budrovich, Judith Barr (FB Live Curators)</span>
+            </li>
+            <li><span class="title">Integrated Distribution Strategy for Content</span>
+                <span class="speaker">Laura Hubber</span>
+            </li>
+            <li><span class="title">Provenance Index Remodel (PIR) Project </span>
+                <span class="speaker">Ruth Cuadra</span>
+            </li>
+            <li><span class="title">Romano-Egyptian Mummy Portrait Database</span>
+                <span class="speaker">Marie Svoboda</span>
+            </li>
+            <li><span class="title">IIIF at the Getty</span>
+                <span class="speaker">Rob Sanderson</span>
+            </li>
+            <li><span class="title">Research on Scholars’ Use of Social Media</span>
+                <span class="speaker">Betsy Brand, Kayleigh Perkov (Scholars Social Media Research Unicorns)</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper front" id="p_4"><div class="page">
+          <h2><svg class="icon"><switch><use xlink:href="#pigeon"></use><foreignObject><img src="assets/images/icon_pigeon.png" alt="" /></foreignObject><switch></svg> “Birds of a <br />Feather” Lunches</h2>
+          <p class="details"><span class="time">12–12:50pm</span> | <span class="location">GRI Lecture Hall</span></p>
+          <ul>
+            <li><span class="title">Software Development</span>
+                <span class="speaker">Mike Clardy</span>
+            </li>
+            <li><span class="title">True Confessions of Professional Control Freaks & Other Project Management Tales</span>
+                <span class="speaker">Elizabeth Smith</span>
+            </li>
+            <li><span class="title">All Things Mobile: Heads Up!</span>
+                <span class="speaker">Hunter Cheun, Steve Gemmel</span>
+            </li>
+            <li><span class="title">Editing for Digital</span>
+                <span class="speaker">Tobi Kaplan, Ruth Lane, John Hicks, Annelisa Stephan</span>
+            </li>
+          </ul>
+          <p class="details"><span class="time">12–12:50pm</span> | <span class="location">Private Dining Room (above the restaurant)</span></p>
+          <ul>
+            <li><span class="title">Telling Stories with Technology</span>
+                <span class="speaker">Amelia Wong</span>
+            </li>
+            <li><span class="title">ArtsEdTech—Digital Learning</span>
+                <span class="speaker">Erin Branham, Manny Guardado, Diana Navarrete, Kelly Williams</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper front" id="p_5"><div class="page">
+          <h2><svg class="icon"><switch><use xlink:href="#potion"></use><foreignObject><img src="assets/images/icon_potion.png" alt="" /></foreignObject><switch></svg> Demos & Tours</h2>
+          <p><span class="time">1:00–2:20pm<span> | Various Locations</p>
+          <h3>Data Center Insider Tour</h3>
+          <p class="details">Tours start at 1pm, 1:30pm, and 2pm. <span class="location">Meet at Central Security<span></p>
+          <p><span class="speaker">Petrus Williams</span></p>
+          <h3>Digitization Poster-ama</h3>
+          <p class="details"><span class="location">Museum Studios (Museum L2)<span></p>
+          <ul>
+            <li>
+              <span class="title">GRI</span>
+              <span class="speaker">Holly Rose McGee, Teresa Soleau, Linta Kunnathuparambil</span>
+            </li>
+            <li>
+              <span class="title">Museum</span>
+              <span class="speaker">Brenda Podemski, Autumn Harrison, Alexandra Bancroft</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_6"><div class="page">
+          <h3 class="continued">Learning Lounge</h3>
+          <p class="details"><span class="location">Boardroom (above the restaurant)</span></p>
+          <ul>
+            <li>
+              <span class="title">Wikipedia</span>
+              <span class="speaker">Sarah Sherman</span>
+            </li>
+            <li>
+              <span class="title">Twitter</span>
+              <span class="speaker">Tristan Bravinder</span>
+            </li>
+            <li>
+              <span class="title">Project Management</span>
+              <span class="speaker">David Lacey</span>
+            </li>
+            <li>
+              <span class="title">Lynda.com</span>
+              <span class="speaker">Kathryn Cody, Lili Koponen</span>
+            </li>
+          </ul>
+
+          <h3>Tech Geekfest</h3>
+          <p class="details"><span class="location">Museum Studios (Museum L2)</span></p>
+          <p><span class="title">VR, 360 photography, 3D printing, the Nitendo Switch and more</span> <span class="speaker">Steve Gemmel, Manny Guardado, Jack Ludden, Christopher Sprinkle</span></p>
+
+          <h3>Transcriptions ‘R’ Us</h3>
+          <p class="details"><span class="location">Delphi (East Bldg L3)</span></p>
+          <p><span class="title">Crowdsoucing and the R language</span><span class="speaker">Nathaniel Deines</span></p>
+
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_7"><div class="page">
+          <h3 class="continued">Web-Demo-Stravaganza</h3>
+          <p class="details"><span class="location">Herculaneum (East Bldg L3)<span></p>
+          <!-- <p>Pick up a bookmark and learn about the Getty Research Portal from Annie Ranna on your way in.</p> -->
+          <ul>
+            <li>
+              <span class="title">Ancient Palmyra Online</span>
+              <span class="speaker">Uma Nair</span>
+            </li>
+            <li>
+              <span class="title">Arches 4.0</span>
+              <span class="speaker">Annabel Enriquez, Alison Dalgity</span>
+            </li>
+            <li>
+              <span class="title">I Created a Website (And You Can, Too)</span>
+              <span class="speaker">Janelle Gatchalian</span>
+            </li>
+            <li>
+              <span class="title">Getty Pubs’ Latest and Greatest</span>
+              <span class="speaker">Eric Gardner</span>
+            </li>
+            <li>
+              <span class="title">Plugin Mysteries Revealed</span>
+              <span class="speaker">Paula Carlson</span>
+            </li>
+            <li>
+              <span class="title">SharePoint for Construction and Operations</span>
+              <span class="speaker">Lucette Landry, Calvin Chan</span>
+            </li>
+            <li>
+              <span class="title">Online Library Resources</span>
+              <span class="speaker">Susan Flanagan </span>
+            </li>
+            <li>
+              <span class="title">ClickShare Is Go!</span>
+              <span class="speaker">Steph Dirden</span>
+            </li>
+            <li>
+              <span class="title">Getty Research Portalx</span>
+              <span class="speaker">Annie Ranna</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper front" id="p_8"><div class="page">
+          <img class="full-bleed" src="assets/images/map-a.jpg" alt=""/>
+        </div></div>
+        <div class="page-wrapper front" id="p_9"><div class="page">
+          <img class="full-bleed" src="assets/images/map-b.jpg" alt=""/>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_10"><div class="page">
+          <h2><svg class="icon"><switch><use xlink:href="#heart"></use><foreignObject><img src="assets/images/icon_heart.png" alt="" /></foreignObject><switch></svg> Discussions</h2>
+          <p><span class="time">2:30–3:50pm<span> | Various Locations</p>
+          <figure>
+            <img src="assets/images/tandy.jpg" alt="" />
+          </figure>
+          <h3>Team Tandy</h3>
+          <p class="details"><span class="location">GRI Plaza Conference Room<span></p>
+          <ul>
+            <li>
+              <span class="title">Digitization Projects at the GRI</span>
+              <span class="speaker">Lyndsey Godwin, Aimee Lind, Matt Moore, Laura Schroffel</span>
+            </li>
+            <li>
+              <span class="title">Creative Commons</span>
+              <span class="speaker">Cherie Chen, Mikka Gee Conway</span>
+            </li>
+            <li>
+              <span class="title">Creating a Cross-Program Team</span>
+              <span class="speaker">Angela Escobar, Annelisa Stephan</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_11"><div class="page">
+          <figure>
+            <img src="assets/images/atari.jpg" alt="" />
+          </figure>
+          <h3>Team Atari</h3>
+          <p class="details"><span class="location">Herculaneum (East Bldg L3)<span></p>
+          <ul>
+            <li>
+              <span class="title">3D Model of the Berlin Philharmonie</span>
+              <span class="speaker">Chris Edwards, Emily Pugh</span>
+            </li>
+            <li>
+              <span class="title">Linked Open Data at the Getty</span>
+              <span class="speaker">Rob Sanderson</span>
+            </li>
+            <li>
+              <span class="title">Web Accessibility</span>
+              <span class="speaker">Nick Geller</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper front" id="p_12"><div class="page">
+          <figure>
+            <img src="assets/images/kaypro.jpg" alt="" />
+          </figure>
+          <h3>Team Kaypro</h3>
+          <p class="details"><span class="location">New Founders Room (Museum 2nd fl)<span></p>
+          <ul>
+            <li>
+              <span class="title">Computational Research Using Provenance Data</span>
+              <span class="speaker">Sandra van Ginhoven</span>
+            </li>
+            <li>
+              <span class="title">IIIF at the Museum</span>
+              <span class="speaker">Daniel Sissman</span>
+            </li>
+            <li>
+              <span class="title">Mobile Interpretation</span>
+              <span class="speaker">Tim Halbur</span>
+            </li>
+            <li>
+              <span class="title">#MetadataMonday</span>
+              <span class="speaker">Marissa Clifford</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper front" id="p_13"><div class="page">
+          <figure>
+            <img src="assets/images/apricot.jpg" alt="" />
+          </figure>
+          <h3>Team Apricot</h3>
+          <p class="details"><span class="location">Boardroom (above the restaurant)<span></p>
+          <ul>
+            <li>
+              <span class="title">Notation K Prototype</span>
+              <span class="speaker">John Hicks</span>
+            </li>
+            <li>
+              <span class="title">Open Access and Legacy Data</span>
+              <span class="speaker">Melissa Gill, Kelly Davis</span>
+            </li>
+            <li>
+              <span class="title">Beyond the Getty Digital Help Desk</span>
+              <span class="speaker">Scarlett Hu</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_14"><div class="page">
+          <figure>
+            <img src="assets/images/zeos.jpg" alt="" />
+          </figure>
+          <h3>Team Zeos</h3>
+          <p class="details"><span class="location">Private Dining Room (above the restaurant)<span></p>
+          <ul>
+            <li>
+              <span class="title">Getty Center and Getty Villa Visitor Journey Maps</span>
+              <span class="speaker">Cathy Bell</span>
+            </li>
+            <li>
+              <span class="title">Getty GO Brainstorm</span>
+              <span class="speaker">Diana Carroll</span>
+            </li>
+            <li>
+              <span class="title">Digital Objects</span>
+              <span class="speaker">Philman Wu, Gene Tomilko</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper back flipped" id="p_15"><div class="page">
+          <figure>
+            <img src="assets/images/commodore.jpg" alt="" />
+          </figure>
+          <h3>Team Commodore</h3>
+          <p class="details"><span class="location">Museum Studios (Museum L2)<span></p>
+          <ul>
+            <li>
+              <span class="title">Collaboration: Brainstorm to Action!</span>
+              <span class="speaker">Liz McDermott</span>
+            </li>
+            <li>
+              <span class="title">Digital Learning</span>
+              <span class="speaker">Erin Branham, Manny Guardado, Kelly Williams, Lisa Davis, Alice Doo</span>
+            </li>
+            <li>
+              <span class="title">Digital Preservation</span>
+              <span class="speaker">Teresa Soleau</span>
+            </li>
+          </ul>
+        </div></div>
+        <div class="page-wrapper front" id="p_16"><div class="page">
+          <h2><svg class="icon-horz"><switch><use xlink:href="#invader"></use><foreignObject><img src="assets/images/icon_invader.png" alt="" /></foreignObject><switch></svg> Reception</h2>
+          <p class="details">4–5pm-ish | East Bldg L2 Staff Lounge</p>
+          <hr />
+          <h2>And watch for …</h2>
+          <h3>Digital Learning Maps</h3>
+          <p class="details">10am–12:15pm | Lecture Hall Lobby<br />
+            1–2:20pm | Herculaneum (East Bldg L3)<br />
+            4–5pm | East Bldg L2 Staff Lounge</p>
+          <p>Kathryn Cody, Lili Koponen, Carol Donovan, Gizelle Armstrong, Patti Araque</p>
+          <h3>Press Corps</h3>
+          <p class="details">On duty all day and sharing afterward</p>
+          <p>Amra Schmitz, Beatrice Hohenegger, John McHugh Dennis, Paul Mullins, Joan Weinstein, Cassie Mansfield, Tevvy Ball, Cynthia Griffin, Richard Jewett, Karen Levine, Jessica Palmieri, Miranda Sklaroff, Brian Houck, Lyra Kilston, Kara Kirk</p>
+        </div></div>
       </div>
     </main>
     <div id="controls">
-
       <div><button id="flip">Flip</button></div>
       <div><button id="turn">Turn</button></div>
       <div><button id="fold">Fold / Unfold</button></div>
