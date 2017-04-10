@@ -91,11 +91,15 @@ hr + h2 {
 }
 .icon {
   width: 1.5rem;
-  margin-right: .5rem;
+  height: 1.5rem;
 }
-.icon-lg {
+.icon-vert {
+  width: 1.5rem;
+  height: 2rem;
+}
+.icon-horz {
   width: 2rem;
-  margin-right: .5rem;
+  height: 1.5rem;
 }
 .title {
   font-weight: 700;
@@ -108,5 +112,10 @@ hr + h2 {
   }
   h1, h2 {
     color: #a313ff;
+  }
+  .icon,
+  .icon-vert,
+  .icon-horz {
+    fill: #a313ff;
   }
 }
