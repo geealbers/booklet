@@ -100,3 +100,13 @@ hr + h2 {
 .title {
   font-weight: 700;
 }
+
+@media print {
+  img {
+    -webkit-filter: none;
+    filter: none;
+  }
+  h1, h2 {
+    color: #a313ff;
+  }
+}
